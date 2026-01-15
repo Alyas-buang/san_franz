@@ -1,5 +1,13 @@
 <?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+<?php
+
 include 'db.php';
 
 // Initialize cart
@@ -182,7 +190,7 @@ if (isset($_GET['remove'])) {
     <h2>Cashiering - JB Builders</h2>
 
     <div class="nav-buttons">
-        <a href="index.php"><button class="btn btn-gray">⬅ Back to Inventory</button></a>
+        <a href="inventory.php"><button class="btn btn-gray">⬅ Back to Inventory</button></a>
         <a href="sales_report.php"><button class="btn">📊 Sales Report</button></a>
     </div>
 

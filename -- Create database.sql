@@ -21,9 +21,4 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- Sample data (optional)
-INSERT INTO inventory (item_code, item_name, quantity, unit_cost, srp) VALUES
-('A001', 'Shampoo 200ml', 50, 40.00, 60.00),
-('A002', 'Toothpaste 100g', 30, 25.00, 40.00),
-('A003', 'Soap Bar', 100, 15.00, 25.00),
-('A004', 'Conditioner 200ml', 40, 45.00, 65.00);
+

@@ -1,27 +1,50 @@
-/* === Global Styles === */
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+  --primary: #007bff;
+  --primary-dark: #0056b3;
+  --danger: #dc3545;
+  --gray-bg: #f4f6f8;
+  --card-bg: #ffffff;
+  --border: #dddddd;
+  --text: #333;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
+  background: var(--gray-bg);
+  color: var(--text);
 }
 
-/* === Page Container === */
+/* =========================
+   CONTAINER
+========================= */
 .container {
   width: 90%;
   max-width: 1100px;
   margin: 40px auto;
-  background: #fff;
+  background: var(--card-bg);
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-/* === Header === */
+/* =========================
+   HEADERS
+========================= */
 h2 {
   text-align: center;
-  color: #007bff;
+  color: var(--primary);
   font-size: 2em;
   margin-bottom: 20px;
 }
@@ -31,31 +54,45 @@ h3 {
   color: #444;
 }
 
-/* === Buttons === */
+/* =========================
+   BUTTONS
+========================= */
 button {
-  background: #007bff;
+  background: var(--primary);
   border: none;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
+  transition: all 0.25s ease;
+  font-weight: 600;
 }
 
 button:hover {
-  background: #0056b3;
+  background: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
-a button {
-  margin-right: 6px;
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background: var(--danger);
+}
+
+.btn-danger:hover {
+  background: #b52a37;
 }
 
 a {
   text-decoration: none;
 }
 
-/* === Form === */
+/* =========================
+   FORMS
+========================= */
 form {
   margin-bottom: 20px;
   display: flex;
@@ -65,49 +102,62 @@ form {
 }
 
 input[type="text"],
-input[type="number"] {
-  padding: 8px;
+input[type="number"],
+input[type="date"] {
+  padding: 8px 10px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   width: 160px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color: #007bff;
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0,123,255,.15);
   outline: none;
 }
 
-/* === Table === */
+/* =========================
+   TABLE
+========================= */
 table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
   margin-top: 15px;
 }
 
 th, td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   padding: 10px;
   text-align: center;
 }
 
 th {
-  background: #007bff;
-  color: white;
+  background: var(--primary);
+  color: #fff;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 13px;
+  letter-spacing: 0.6px;
 }
 
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background: #f9f9f9;
 }
 
 tr:hover {
-  background-color: #eef5ff;
+  background: #eef5ff;
 }
 
-/* === Responsive Design === */
+/* LOW STOCK */
+.low-stock {
+  background: #ffe5e5 !important;
+  color: #b00000;
+  font-weight: bold;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .container {
     width: 95%;
@@ -121,5 +171,9 @@ tr:hover {
 
   input, button {
     width: 100%;
+  }
+
+  table {
+    font-size: 13px;
   }
 }
